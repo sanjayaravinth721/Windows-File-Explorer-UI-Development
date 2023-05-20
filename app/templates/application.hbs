@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My App</title>
+</head>
+
+<body>
+
+    {{!-- <div id="file-explorer"> --}}
+        <h1>File Explorer</h1>
+
+        <div class="search-container">
+
+            <input id="search-input" type="text" {{on "input" this.search}}  placeholder="Search...">
+            <div id="suggestions"></div>
+            <button id="searchBtn" type="button" {{on "click" this.searchDirectory}} >Search</button>
+
+        </div>
+
+        <div id="drive-button-container">
+            {{#each @model.drives as |drive|}}
+            <button class="file-explorer-button" id="drive-button" type="button" {{on "click" (fn this.setDrive
+                drive)}}>{{drive}}</button>
+            {{/each}}
+        </div>
+
+        <div id="folder-button-container">
+            <div id="button-container">
+
+            </div>
+
+           
+
+        </div>
+         <div id="pagination-container"></div>
+
+        <button class="new-file-explorer-button" id="back-button" type="button" {{on "click"
+            this.backTraverse}}></button>
+</body>
+
+</html>
